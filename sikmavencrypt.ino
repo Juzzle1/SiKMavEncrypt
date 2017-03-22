@@ -1,10 +1,9 @@
-#include "Cape.h"
 //Simple MAVLINK message scrambler for use with SiK Telemetry Radios
 //
 //This does not guarantee any kind of genuine security, however would make it extremely difficult for
 //someone to maliciously take control of an aircraft.
 //
-
+#include "Cape.h"
 Cape newencrypt(
 
 
@@ -21,9 +20,6 @@ Cape newencrypt(
 int telemBaud = 57600; 
 
 //9600, 14400, 19200, 28800, 38400, 57600, or 115200
-
-
-
 // End Setup
 
 
@@ -139,17 +135,12 @@ mavMSG="";
           
      }   
 
-
-
-
-
 //read encrypted radio link
 
 void readRadio() {
 int startMsg=0;
 String startSeq="";
 
- 
      
           //check for start message sequence, if not found discard.
           for (int i=0; i<4;i++) {
@@ -189,12 +180,6 @@ String startSeq="";
    
 
 
-
-
-
-
-
-
 void  writeMav() {
     if (encDataAvailable==1) {
 
@@ -211,8 +196,6 @@ encStrSize=0;
 encDataAvailable=0;
 }
 }
-
-
 
 //write encrypted radio data
 
@@ -246,5 +229,3 @@ Serial2.print (encryptedOut[i]);
 mavMSG="";
 mavDataAvailable=0;
  }
-
-
